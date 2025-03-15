@@ -30,8 +30,12 @@ export class CustomLogger extends ConsoleLogger implements LoggerService {
     }
   }
 
+  getCorrelationId(): UUID | undefined {
+    return this.als.getStore();
+  }
+
   addCorrelationIdToMessage(message: any): any {
-    const correlationId = this.als.getStore();
+    const correlationId = this.getCorrelationId();
     return correlationId ? `[CID: ${correlationId}] ${message}` : message;
   }
 

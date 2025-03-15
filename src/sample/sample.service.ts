@@ -7,6 +7,7 @@ export class SampleService {
 
   getHello() {
     this.logger.log('log from the sample service');
+    this.logger.log('Correlation ID: ' + this.logger.getCorrelationId());
     return 'HOLLA. Sample body here';
   }
 }
